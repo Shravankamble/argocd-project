@@ -1,0 +1,19 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: jwt-auth-netpol
+  # namespace: jwt-auth
+spec:
+  podSelector:
+    matchLabels:
+      role: admin
+  ingress:
+    - from: 
+        - podSelector:
+            matchLabels:
+              role: backend 
+        - namespaceSelector:
+            matchLabels:
+              project: jwt-auth
+      ports:
+        - port: 8000

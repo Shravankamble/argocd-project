@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-to-test-netpol
+  # namespace: jwt-auth
+  labels:
+    traffic: allow
+    role: backend
+spec:
+  containers:
+  - name: myapp
+    image: shravankamble/fastapi-dockerize:v0.0.2
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "20m"
+    ports:
+      - containerPort: 8000
