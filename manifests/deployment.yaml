@@ -7,7 +7,7 @@ metadata:
     github.com: "https://github.com/Shravankamble/jwt-auth.git" # git repo annotation 
     app.kubernetes.io/name: fastapi
 spec:
-  replicas: 2 # number pods that are gonna run
+  replicas: 1 # number pods that are gonna run
   selector:
     matchLabels:
       app: myapp # selector set to myapp 
