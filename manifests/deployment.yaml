@@ -16,7 +16,7 @@ spec:
       labels:
         app: myapp
         environment: dev
-        role: admin
+        project: jwt-auth
     spec:
       affinity: # defining on which node our workloads gonna go  
         nodeAffinity:

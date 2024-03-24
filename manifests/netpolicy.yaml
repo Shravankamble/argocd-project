@@ -6,14 +6,14 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      role: admin
+      project: jwt-auth
   ingress:
     - from: 
         - podSelector:
             matchLabels:
               role: backend 
-        - namespaceSelector:
-            matchLabels:
-              project: jwt-auth
+        # - namespaceSelector:
+        #     matchLabels:
+        #       project: jwt-auth
       ports:
         - port: 8000

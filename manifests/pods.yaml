@@ -4,7 +4,7 @@ metadata:
   name: pod-to-test-netpol-inside-of-ns
   namespace: jwt-auth
   labels:
-    traffic: allow
+    # traffic: allow
     role: backend
 spec:
   containers:
