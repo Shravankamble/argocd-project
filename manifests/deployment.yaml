@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app # name of the application/deployment
+  namespace: jwt-auth
+  annotations:
+    github.com: "https://github.com/Shravankamble/jwt-auth.git" # git repo annotation 
+    app.kubernetes.io/name: fastapi
+spec:
+  replicas: 2 # number pods that are gonna run
+  selector:
+    matchLabels:
+      app: myapp # selector set to myapp 
+  template: # additional metadata about the deployment
+    metadata:
+      labels:
+        app: myapp
+        environment: dev
+        role: admin
+    spec:
+      affinity: # defining on which node our workloads gonna go  
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms: # terms for selecting nodes
+              - matchExpressions: # have to match this expression
+                  - key: kubernetes.io/hostname # this is the key. You can define it like this key: disktype so now the workload only will run no nodes which have disktype ssd you also have to set the values as ssd   
+                    operator: In 
+                    values:
+                      - "multi-knodes-m02" # this is the value node name or hostname
+      containers:
+      - name: fastapi-container # container name 
+        image: ghcr.io/shravankamble/jwt-auth:v2  # shravankamble/fastapi-dockerize:v0.0.2 image we are gonna use
+        imagePullPolicy: IfNotPresent # imagePullPolicy set to IfNotPresent meaning if the image doesn't exists locally we have to pull it form the docker hub or any other container registry
+        resources: # defines how cpu and memory the deployments gonna need 
+          requests: # this is the requested memory and cpu 
+            memory: "128Mi"
+            cpu: "150m"
+          limits: # this is the limit
+            memory: "150Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 8000
