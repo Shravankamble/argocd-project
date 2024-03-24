@@ -1,8 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-to-test-netpol-outside-the-ns
+  name: pod-to-test-netpol-inside-of-ns
+  namespace: jwt-auth
   labels:
+    traffic: allow
     role: backend
 spec:
   containers:
