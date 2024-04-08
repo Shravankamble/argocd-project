@@ -6,9 +6,9 @@ metadata:
   labels:
     name: myingress # labels
 spec:
-  ingressClassName: nginx # { ngrok } ingress class name recommended
+  ingressClassName: ngrok # { ngrok } ingress class name recommended
   rules:
-  - host: fastapi.info # bass-more-cowbird.ngrok-free.app define it in etc/hosts on linux and on windows windows/system32/drivers/etc/hosts, add this in the hosts file fastapi.info     (what ever ip your ingress resource gets)
+  - host: divine-fully-ewe.ngrok-free.app # bass-more-cowbird.ngrok-free.app define it in etc/hosts on linux and on windows windows/system32/drivers/etc/hosts, add this in the hosts file fastapi.info     (what ever ip your ingress resource gets)
     http: # defining the rules
       paths:
       - pathType: Prefix
