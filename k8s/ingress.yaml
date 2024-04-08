@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fastapi-ingress # name of the ingress
-  namespace: jwt-auth
+  # namespace: jwt-auth
   labels:
     name: myingress # labels
 spec:
