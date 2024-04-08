@@ -9,6 +9,6 @@ spec:
     app: myapp # selector app
     # role: backend
   ports:
-  - port: 8081 # service port
+  - port: 8080 # service port
     protocol: TCP   
     targetPort: 8000 # target port where the service gonna listen too.
