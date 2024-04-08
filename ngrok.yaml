@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ngrok-ingress-controller
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: kubernetes-ingress-controller
+    repoURL: https://ngrok.github.io/kubernetes-ingress-controller
+    targetRevision: 0.10.0
+    helm:
+      parameters:
+      - name: "credentials.apiKey"
+        value: 2epDH56uZNYDGXK4ADjZ3HFr00x_3a3wKBtwrrX9KfJwMi1sM
+      - name: "credentials.authtoken"
+        value: 2VrKjo6KmiLYQpnux6nsp373TUe_6WBWWvE25cH2JBvCJhEcz
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: ngrok-ingress-controller
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
