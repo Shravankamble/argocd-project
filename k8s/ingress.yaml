@@ -17,4 +17,4 @@ spec:
           service: # in this case is our fastapi-service
             name: fastapi-service # name of the service
             port:  
-              number: 8081 # and the port that service listens on 
+              number: 8080 # and the port that service listens on 
