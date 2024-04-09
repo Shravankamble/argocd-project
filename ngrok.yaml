@@ -12,9 +12,9 @@ spec:
     helm:
       parameters:
       - name: "credentials.apiKey"
-        value: 2epDH56uZNYDGXK4ADjZ3HFr00x_3a3wKBtwrrX9KfJwMi1sM
+        value: # your ngrok apiKey goes here
       - name: "credentials.authtoken"
-        value: 2VrKjo6KmiLYQpnux6nsp373TUe_6WBWWvE25cH2JBvCJhEcz
+        value: # your ngrok authtoken goes here
   destination:
     server: "https://kubernetes.default.svc"
     namespace: ngrok-ingress-controller
